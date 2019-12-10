@@ -1,0 +1,81 @@
+
+<html>
+<head>
+<title>greatgatsbyadaptation</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://static.codehs.com/gulp/aa3f26e278d7641174a90eafc8d78411eca21045/chs-js-lib/chs.js"></script>
+
+
+<style>
+canvas {
+    border: 1px solid black;
+    display: inline-block;
+    vertical-align: top;
+}
+
+pre {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    height: 500px;
+    background-color: #F5F5F5;
+}
+</style>
+
+</head>
+
+<body>
+<h1>greatgatsbyadaptation</h1>
+
+
+
+<canvas
+width="400"
+height="500"
+class="codehs-editor-canvas"></canvas>
+<pre id="console"></pre>
+
+<script>
+window.onload = function() {
+
+    var myrtle;
+var car;
+var myrtle_width = 50;
+function start(){
+    car = new WebImage("https://raw.githubusercontent.com/bolandsean/greatgatsbyadaptation/master/car.png");
+    car.setPosition(0,getHeight()/3);
+    car.setSize(200,100);
+    myrtle = new WebImage("https://raw.githubusercontent.com/bolandsean/greatgatsbyadaptation/master/myrtle.png");
+    myrtle.setPosition(getWidth()-myrtle_width,getHeight()/Randomizer.nextFloat(1.5,10));
+    myrtle.setSize(myrtle_width,100);
+    setTimer(loop, 20);
+    keyDownMethod(keyDown);
+    add(myrtle);
+    add(car);
+}
+function loop(){
+    println(car.getX()+car.getWidth()+"\n"+myrtle.getX());
+    if(getElementAt(car.getX()+car.getWidth(),car.getY())==myrtle){
+        //remove(myrtle);
+    }
+}
+function keyDown(e){
+    if(e.keyCode==Keyboard.DOWN){
+        car.move(0,5);
+    }
+    else if(e.keyCode==Keyboard.UP){
+        car.move(0,-5);
+    }
+}
+
+
+    if (typeof start === 'function') {
+        start();
+    }
+};
+</script>
+
+</body>
+</html>
